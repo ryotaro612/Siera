@@ -22,6 +22,7 @@
 				<!-- Header -->
 					<header id="header">
 						<h1><a href="#">{{ site.title }}</a></h1>
+						<!--
 						<nav class="links">
 							<ul>
 								<li><a href="#">Lorem</a></li>
@@ -44,6 +45,7 @@
 								</li>
 							</ul>
 						</nav>
+  					-->
 					</header>
 
 				<!-- Menu -->
@@ -493,11 +495,25 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						-->
 
 						<!-- Pagination -->
+						<!--
 							<ul class="actions pagination">
 								<li><a href="" class="disabled button big previous">Previous Page</a></li>
 								<li><a href="#" class="button big next">Next Page</a></li>
 							</ul>
-
+						-->
+							<ul class="actions pagination">
+							  {% if paginator.previous_page %}
+								  <li><a href="{{ paginator.previous_page_path }}" class="button big previous">Previous Page</a></li>
+								{% else %}
+								  <li><a href="#" class="disabled button big previous">Previous Page</a></li>
+								{% endif %}
+								<li>{{ paginator.page }} of {{ paginator.total_pages }}</li>
+								{% if paginator.next_page %}
+								  <li><a href="{{ paginator.next_page_path }}" class"button big next">Next Page</a></li>
+								{% else %}
+								  <li><a href="#" class="disabled button big next">Next Page</a></li>
+								{% endif %}
+							</ul>
 					</div>
 
 				<!-- Sidebar -->
