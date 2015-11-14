@@ -10,7 +10,7 @@ layout: main
         <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
       </div>
       <div class="meta">
-        <time class="published" datetime="2015-11-01">{{ post.date | date: "%B %d, %Y" }}</time>
+        <time class="published" datetime="{{ post.date | date: "%F" }}">{{ post.date | date: "%B %d, %Y" }}</time>
         {% for category in post.categories limit:1 %}
           <a href="#">{{ category }}</a>
         {% endfor %}
