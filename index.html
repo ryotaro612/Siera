@@ -6,7 +6,7 @@ layout: main
   <article class="post">
     <header>
       <div class="title">
-        <h2><a href="#">{{ post.title }}</a></h2>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
       </div>
       <div class="meta">
@@ -20,7 +20,7 @@ layout: main
       </div>
     </header>
     {% if post.image %}
-      <a href="#" class="image featured"><img src="{{post.image}}" alt="" /></a>
+      <a href="{{ post.url }}" class="image featured"><img src="{{post.image}}" alt="" /></a>
     {% endif %}
     {{ post.excerpt }}
     <footer>

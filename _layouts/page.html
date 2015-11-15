@@ -19,7 +19,7 @@
             <article class="post">
               <header>
                 <div class="title">
-                  <h2><a href="#">{{ page.title }}</a></h2>
+                  <h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
                 <!-- <p>Lorem ipsum dolor amet nullam consequat etiam feugiat</p> -->
                 </div>
                 <div class="meta">
@@ -33,7 +33,7 @@
                 </div>
               </header>
               {% if page.image %}
-                <a href="#" class="image featured"><img src="{{page.image}}" alt="" /></a>
+                <a href="{{ page.url }}" class="image featured"><img src="{{page.image}}" alt="" /></a>
               {% endif %}
               {{ content }}
               <footer>
