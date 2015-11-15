@@ -19,7 +19,9 @@ layout: main
         -->
       </div>
     </header>
-    <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
+    {% if post.image %}
+      <a href="#" class="image featured"><img src="{{post.image}}" alt="" /></a>
+    {% endif %}
     {{ post.excerpt }}
     <footer>
       <ul class="actions">

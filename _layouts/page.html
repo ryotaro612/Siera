@@ -32,7 +32,9 @@
         -->
                 </div>
               </header>
-              <a href="#" class="image featured"><img src="/images/pic01.jpg" alt="" /></a>
+              {% if page.image %}
+                <a href="#" class="image featured"><img src="{{page.image}}" alt="" /></a>
+              {% endif %}
               {{ content }}
               <footer>
                 <ul class="stats">

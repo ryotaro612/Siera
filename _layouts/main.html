@@ -17,6 +17,7 @@
 
 						<!-- Post -->
 			      {{ content }}
+            <div class="center-block">
   					<ul class="actions pagination">
   					  {% if paginator.previous_page %}
   	  				  <li><a href="{{ paginator.previous_page_path }}" class="button big previous">Previous Page</a></li>
@@ -30,6 +31,7 @@
   						  <li><a href="#" class="disabled button big next">Next Page</a></li>
   						{% endif %}
   					</ul>
+          </div>
 					</div>
 
 				<!-- Sidebar -->

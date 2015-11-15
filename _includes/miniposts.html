@@ -7,7 +7,9 @@
 		      <time class="published" datetime="{{post.date | date: "%F" }}">{{ post.date | date: "%B %d, %Y" }}</time>
 						<!--<a href="#" class="author"><img src="/images/avatar.jpg" alt="" /></a>-->
 			  </header>
-		    <a href="#" class="image"><img src="/images/pic04.jpg" alt="" /></a>
+        {% if post.image %}
+          <a href="#" class="image"><img src="{{post.image}}" alt="" /></a>
+        {% endif %}
 		  </article>
 									<!-- Mini Post -->
 									  <!--
