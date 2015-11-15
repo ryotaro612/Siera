@@ -2,7 +2,7 @@
 layout: main
 ---
 
-{% for post in site.posts %}
+{% for post in paginator.posts %}
   <article class="post">
     <header>
       <div class="title">
@@ -23,7 +23,7 @@ layout: main
     {{ post.excerpt }}
     <footer>
       <ul class="actions">
-        <li><a href="#" class="button big">Continue Reading</a></li>
+        <li><a href="{{ post.url }}" class="button big">Continue Reading</a></li>
       </ul>
       <ul class="stats">
         {% for tag in post.tags limit:3 %}
