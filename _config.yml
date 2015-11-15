@@ -16,3 +16,5 @@ markdown: kramdown
 paginate: 4
 
 author: Your name
+
+gems: [jekyll-paginate]
