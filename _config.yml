@@ -3,8 +3,8 @@ title: indeex
 email: imisslovelove@live.com
 description: > # this means to ignore newlines until "baseurl:"
  Welcom to my website.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "/book" # the base hostname & protocol for your site
+baseurl: "/book/" # the subpath of your site, e.g. /blog/
+url: "http://indeex.org" # the base hostname & protocol for your site
 twitter_username: imisslovelove
 github_username:  houngkinghsi
 
