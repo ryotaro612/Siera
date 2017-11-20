@@ -18,3 +18,5 @@ paginate: 4
 author: sona
 
 gems: [jekyll-paginate]
+
+theme: jekyll-theme-hacker
