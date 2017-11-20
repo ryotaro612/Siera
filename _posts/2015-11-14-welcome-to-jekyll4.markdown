@@ -18,17 +18,15 @@ The first step in producing a deployable war file is to provide a SpringBootServ
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
-
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
     }
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
-
 }
+
 第一步，balaba一大堆，大概就是说让你在你的主程序类上继承SpringBootServletInitializer，并实现configure方法。
 
 The next step is to update your build configuration so that your project produces a war file rather than a jar file. If you’re using Maven and using spring-boot-starter-parent (which configures Maven’s war plugin for you) all you need to do is to modify pom.xml to change the packaging to war:
