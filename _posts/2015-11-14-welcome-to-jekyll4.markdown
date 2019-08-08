@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to sona!"
+title:  "springboot打war包遇到的那些坑"
 date:   2017-11-14 16:52:07
 categories: sona update
 tags: sona update
