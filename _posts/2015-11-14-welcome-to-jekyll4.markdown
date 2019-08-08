@@ -4,7 +4,6 @@ title:  "Welcome to sona!"
 date:   2017-11-14 16:52:07
 categories: sona update
 tags: sona update
-image: /images/pic01.jpg
 ---
 springboot打war包遇到的那些坑
 
