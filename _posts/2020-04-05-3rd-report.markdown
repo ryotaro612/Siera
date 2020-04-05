@@ -23,7 +23,8 @@ groupadd 명령어를 이용하여 developer, web, db, office라는 4개의 그�
 mkdir /home/info 명령어를 이용하여 info 디렉터리를 만든 다음, chown .developer /home/info를 입력하여 소유권을 developer그룹에게 부여하였다. 또, 디렉터리 허가권을 rwxrwx---로 변경하기위해 chmod 770 /home/info를 입력해주었다. 소유자와 소유그룹이 읽고 쓰고 실행할 수 있게끔 4(r)+2(w)+1(x)=7, 그 외 사용자는 접근할 수 없게 하기위해 770을 적었다. 현재 나의 위치를 알아보기 위해 종종 pwd 명령어를 썼고 ls -l 명령어를 써서 내 위치에 있는 파일과 디렉터리의 용량, 허가권, 소유권 등의 정보를 확인했다.       
 
 **3) w-user 계정으로 /home/info 디렉터리에 info.sh 파일 만들기**      
-![Alt text](https://blogfiles.pstatic.net/MjAyMDA0MDVfMTU1/MDAxNTg2MDgyNzIzNDA0.d9m4LuqyQblcj5WDNtwN9FqHLtPfl4zrS-MrPouAvq0g.KuTyNsFHeTahbVRKt1yFdhd6f-MMH_6LY-vYtYeuaDkg.JPEG.dsa7687/3.JPG)     
+![Alt text](https://blogfiles.pstatic.net/MjAyMDA0MDVfMTU1/MDAxNTg2MDgyNzIzNDA0.d9m4LuqyQblcj5WDNtwN9FqHLtPfl4zrS-MrPouAvq0g.KuTyNsFHeTahbVRKt1yFdhd6f-MMH_6LY-vYtYeuaDkg.JPEG.dsa7687/3.JPG)
+![Alt text](https://blogfiles.pstatic.net/MjAyMDA0MDVfMjMz/MDAxNTg2MDk2NzA1OTQw.LTRt_c-e6hLepLWIoyL9R7CGx1_xDgEZdQVK_-dPhxYg.Xya08O1BOFdUjoDCV8Wksmfg8TwEfX0-_5hZ5wVWV70g.JPEG.dsa7687/3-1.JPG)     
 먼저 w-user계정으로 로그인 하기 위해 su - w-user 를 입력하였다. 사용자계정으로 로그인하니까 글자 색이 바뀌는 게 신기하기도 했다. vi에디터를 이용하여 파일을 만들고 편집하기 위해 vi info.sh를 입력했다. 그 다음 vi에디터가 실행되고 a를 눌러 끼워넣기 상태의 입력모드로 전환한 다음 아래와 같은 내용을 입력했다.    
 ```
 #!/bin/sh
@@ -32,7 +33,7 @@ echo "홈 디렉터리: " $HOME
 echo "셸: " $SHELL
 exit 0        
 ```
-전부 입력했으니 추가한 내용을 저장하고 vi에디터를 닫기 위해 esc를 누르고 :wq를 입력하여 빠져나왔다. sh info.sh로 파일을 실행했더니 위 이미지와 같이 화면에 떴다.    
+전부 입력했으니 추가한 내용을 저장하고 vi에디터를 닫기 위해 esc를 누르고 :wq를 입력하여 빠져나왔다. sh info.sh로 파일을 실행했더니 위 이미지와 같이 화면에 떴다. 위에 있는 사진은 root계정으로 로그인했을 때 뜨는 결과이며, 밑에 있는 사진은 w-user계정으로 로그인했을 때 뜨는 결과이다.   
       
 **4) w-user 계정으로 info.sh파일의 소유권 및 허가권 변경**      
 ![Alt text](https://blogfiles.pstatic.net/MjAyMDA0MDVfMTIy/MDAxNTg2MDgyNzIzNDE3.8DmWYmvoHCEB4Vb1SnotHApHop8OOPGenN65DM3fG4Ag.B8OOgQoxU5j4C3zsKrPlphpQzjt8DPts9t54yKp2-vUg.JPEG.dsa7687/4.JPG)       
