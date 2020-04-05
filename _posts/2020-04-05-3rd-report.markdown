@@ -12,18 +12,18 @@ image: /images/pic02.jpg
 
 어느덧 컴퓨터시스템관리 수업이 3주차에 돌입했다. 이번 수업에서는 ubuntu 실습환경에서 리눅스의 고급명령어에 대해 알아보며 실습하였다. root 계정으로 4가지의 그룹과 3명의 사용자를 만들고 각 사용자를 정해진 그룹에 포함시켰으며, /home/info 디렉터리와 info.sh파일을 만들고 그룹소유권과 디렉터리 허가권을 변경했으며 각각의 결과를 캡쳐하였다.     
       
-
-1) root 계정으로 그룹/사용자 만들기   
-![Alt text](/images/1.jpg)     
+           
+**1) root 계정으로 그룹/사용자 만들기**    
+![Alt text](/gitblog/objectio.github.io/images/1.jpg)     
 groupadd 명령어를 이용하여 developer, web, db, office라는 4개의 그룹을 만들었다. tail/etc/group을 입력하여 네가지 그룹이 무사히 만들어졌는지 확인한 후, adduser 명령어를 이용하여 3개의 사용자 계정을 만들었다. 계정을 먼저 만들고 usermod를 사용할까 했지만 생성할 때부터 그룹에 포함시키기 위해 adduser --gid 명령을 이용하여 그룹에 넣어줬다. --gid는 기본그룹, --groups는 보조그룹이고 adduser에 그룹을 추가시킬 때는 그룹의 이름이 아니라 그룹을 가리키는 숫자를 써야하는 것에 유의하면서 입력했다.
 과제안내에 나와있는 대로 w-user는 기본그룹 web과 보조그룹 developer에, d-user는 기본그룹 db와 보조그룹 developer에, o-user는 기본그룹 office에 포함시켰다. 모두 잘 들어가졌는지 보기 위해 id 계정이름을 사용하여 간간히 확인했다. 전체적으로 확인하기 위하여 tail /etc/passwd와 tail /etc/group 명령을 입력했다.    
-       
-2) root 계정으로 /home/info 디렉터리 만들기    
-![Alt text](/images/2.jpg)     
-mkdir /home/info 명령어를 이용하여 info 디렉터리를 만든 다음, chown .developer /home/info를 입력하여 소유권을 developer그룹에게 부여하였다. 또, 디렉터리 허가권을 rwxrwx---로 변경하기위해 chmod 770 /home/info를 입력해주었다. 소유자와 소유그룹이 읽고 쓰고 실행할 수 있게끔 4(r)+2(w)+1(x)=7, 그 외 사용자는 접근할 수 없게 하기위해 770을 적었다. 현재 나의 위치를 알아보기 위해 종종 pwd 명령어를 썼고 ls -l 명령어를 써서 내 위치에 있는 파일과 디렉터리의 용량, 허가권, 소유권 등의 정보를 확인했다.     
-         
-3) w-user 계정으로 /home/info 디렉터리에 info.sh 파일 만들기
-![Alt text](/images/3.jpg)     
+          
+**2) root 계정으로 /home/info 디렉터리 만들기**    
+![Alt text](/gitblog/objectio.github.io/images/2.jpg)     
+mkdir /home/info 명령어를 이용하여 info 디렉터리를 만든 다음, chown .developer /home/info를 입력하여 소유권을 developer그룹에게 부여하였다. 또, 디렉터리 허가권을 rwxrwx---로 변경하기위해 chmod 770 /home/info를 입력해주었다. 소유자와 소유그룹이 읽고 쓰고 실행할 수 있게끔 4(r)+2(w)+1(x)=7, 그 외 사용자는 접근할 수 없게 하기위해 770을 적었다. 현재 나의 위치를 알아보기 위해 종종 pwd 명령어를 썼고 ls -l 명령어를 써서 내 위치에 있는 파일과 디렉터리의 용량, 허가권, 소유권 등의 정보를 확인했다.       
+
+**3) w-user 계정으로 /home/info 디렉터리에 info.sh 파일 만들기**      
+![Alt text](/gitblog/objectio.github.io/images/3.jpg)     
 먼저 w-user계정으로 로그인 하기 위해 su - w-user 를 입력하였다. 사용자계정으로 로그인하니까 글자 색이 바뀌는 게 신기하기도 했다. vi에디터를 이용하여 파일을 만들고 편집하기 위해 vi info.sh를 입력했다. 그 다음 vi에디터가 실행되고 a를 눌러 끼워넣기 상태의 입력모드로 전환한 다음 아래와 같은 내용을 입력했다.    
 ```
 #!/bin/sh
@@ -33,9 +33,9 @@ echo "셸: " $SHELL
 exit 0        
 ```
 전부 입력했으니 추가한 내용을 저장하고 vi에디터를 닫기 위해 esc를 누르고 :wq를 입력하여 빠져나왔다. sh info.sh로 파일을 실행했더니 위 이미지와 같이 화면에 떴다.    
-       
-4) w-user 계정으로 info.sh파일의 소유권 및 허가권 변경
-![Alt text](/images/4.jpg)       
+      
+**4) w-user 계정으로 info.sh파일의 소유권 및 허가권 변경**      
+![Alt text](/gitblog/objectio.github.io/images/4.jpg)       
 w-user와 d-user계정으로는 info.sh파일을 수정할 수 있고, o-user계정으로는 수정할 수 없도록 변경시켜야한다. 단순히 생각하면 chown 뒤에 w-user와 d-user를 모두 쓰는게 아닌가?라고 여길 수 있지만 절대 그렇게 쉽게 풀리지 않는다. 소유권이 사용자뿐만 아니라 그룹에게도 넘어갈 수 있는 걸 생각해야한다. w-user와 d-user는 공통적으로 developer라는 보조그룹에 소속되어있다는 점을 까먹지 않고 활용하면 된다! 사실 거의 잊어버리고 있었으나, 과제 설명 영상에서 교수님이 일깨워주셔서 활용할 수 있었다. 소유권을 developer그룹으로 바꾸기 위해 chgrp developer info.sh 명령을 입력해주었다. 2번과 마찬가지로 소유권 및 허가권이 제대로 확인하기 위하여 ls -l 명령어를 이용해 확인했다. 작업이 다 끝났으니 root계정으로 돌아오기 위해 logout명령을 사용하여 w-user계정에서 빠져나왔다.      
        
         
