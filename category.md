@@ -6,7 +6,7 @@ image: /images/pic01.jpg
 sitemap: false
 ---
 <div>
-    {% assigncategories = site.categories | sort %}
+    {% assign categories = site.categories | sort %}
     {% for category in categories %}
         <span class = "site-tag">
         <a href="#{{category | first | slugify }}">
