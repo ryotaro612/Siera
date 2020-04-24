@@ -26,5 +26,6 @@ sitemap: false
                 <h3><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }} <p class="date">{{ post.date |  date: "%B %e, %Y" }}</p></a></h3>
                 <p>{{ post.excerpt | strip_html | truncate: 160 }}</p>
             {%endif%}
+        {% endfor %}
     {% endfor %}
 </div>
